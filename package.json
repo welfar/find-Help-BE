@@ -1,0 +1,8 @@
+{
+  "name": "findandhelp_be",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/welfar/find-Help-BE.git",
+  "author": "Welfar <jdwelfar91@gmail.com>",
+  "license": "MIT"
+}
