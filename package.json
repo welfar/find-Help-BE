@@ -2,7 +2,29 @@
   "name": "findandhelp_be",
   "version": "1.0.0",
   "main": "index.js",
+  "engines": {
+    "node": "14.17",
+    "yarn": "1.22"
+  },
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js"
+  },
   "repository": "https://github.com/welfar/find-Help-BE.git",
   "author": "Welfar <jdwelfar91@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "busboy": "^0.3.1",
+    "cloudinary": "^1.26.3",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "joi": "^17.4.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.13.5",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.6.3",
+    "nodemon": "^2.0.12"
+  }
 }
