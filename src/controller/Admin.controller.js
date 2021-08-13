@@ -1,13 +1,12 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-// const { welcomeAdmin } = require("../utils/mailer");
 
 const Admin = require("../models/Admin.model");
 
 module.exports = {
   async show(req, res) {
     try {
-      const { adminId } = req.params;
+      const { adminId } = req.params;//eliminar params para body
       const admin = await Admin.findById(adminId);
       res.status(200).json(admin);
     } catch (err) {
@@ -15,9 +14,18 @@ module.exports = {
     }
   },
 
+  async list(req, res) {
+    try {
+      const admins = await Admin.find({}).select({ password: 0 });
+      res.status(200).json(admins);
+    } catch (err) {
+      res.status(400).json({ message: err.message });
+    }
+  },
+
   async destroy(req, res) {
     try {
-      const { adminId } = req.body;
+      const { adminId } = req.params;
       const admin = await Admin.findByIdAndDelete(adminId);
       res.status(200).json(admin);
     } catch (err) {
@@ -30,7 +38,6 @@ module.exports = {
       const { body } = req;
       const admin = await Admin.create(body);
       res.status(201).json(admin);
-      await welcomeAdmin(admin);
     } catch (error) {
       res.status(400).json("Error registrando un administrador");
     }

@@ -5,6 +5,7 @@ const morgan = require("morgan");
 const connect = require("./db");
 
 const adminRouter = require("./routes/Admin")
+const foundationsRouter = require("./routes/Foundations")
 const newsRouter = require("./routes/News")
 
 const { auth } = require("./utils/middlewares");
@@ -16,12 +17,13 @@ connect();
 app.use(express.json());
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL,
+    // origin: process.env.FRONTEND_URL,
   })
 );
 app.use(morgan("dev"));
 
-app.use("/Admin",adminRouter)
+app.use("/Admin", adminRouter)
+app.use("/Foundations", foundationsRouter)
 app.use("/News", newsRouter)
 
 app.get("/", auth, (req, res) => {
