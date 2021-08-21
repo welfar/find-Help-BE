@@ -39,7 +39,7 @@ module.exports = {
       const admin = await Admin.create(body);
       res.status(201).json(admin);
     } catch (error) {
-      res.status(400).json("Error registrando un administrador");
+      res.status(400).json({ message: error.message });
     }
   },
 
@@ -62,9 +62,6 @@ module.exports = {
       res.status(201).json({
         token,
         admin: {
-          id: admin.id,
-          name: admin.name,
-          lastname: admin.lastname,
           email: admin.email,
         },
       });

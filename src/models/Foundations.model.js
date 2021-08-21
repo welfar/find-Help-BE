@@ -37,7 +37,7 @@ const foundationSchema = new Schema(
     logo: {
       type: String,
       default:
-        "https://res.cloudinary.com/mashcol/image/upload/v1626054119/crossfitapp-profileImages/john-doe_lny628.png",
+        "https://res.cloudinary.com/findandhelp/image/upload/v1629429997/fandh/foundations_xqvbej.gif",
     },
   },
   {

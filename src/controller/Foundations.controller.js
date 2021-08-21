@@ -28,8 +28,8 @@ module.exports = {
         id: foundation.id,
         name: foundation.name,
         email: foundation.email,
-        address: foundation.address,
         phone: foundation.phone,
+        address: foundation.address,
         logo: foundation.profilePicture,
       });
     } catch (error) {
