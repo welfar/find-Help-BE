@@ -6,7 +6,7 @@ const Admin = require("../models/Admin.model");
 module.exports = {
   async show(req, res) {
     try {
-      const { adminId } = req.params;//eliminar params para body
+      const { adminId } = req;
       const admin = await Admin.findById(adminId);
       res.status(200).json(admin);
     } catch (err) {
@@ -25,11 +25,11 @@ module.exports = {
 
   async destroy(req, res) {
     try {
-      const { adminId } = req.params;
+      const { adminId } = req.body;
       const admin = await Admin.findByIdAndDelete(adminId);
       res.status(200).json(admin);
     } catch (err) {
-      res.status(400).json({ message: "Error eliminando los datos" });
+      res.status(400).json({ message: err.message });
     }
   },
 

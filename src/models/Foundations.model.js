@@ -17,8 +17,12 @@ const foundationSchema = new Schema(
         {
           validator(email) {
             return models.Foundation.findOne({ email })
-              .then((foundations) => {
-                return !foundations;
+              .then((foundation) => {
+                if(!foundation || foundation._id.equals(this._id)){
+                  return true;
+                }
+                return false;
+                // return !foundation;
               })
               .catch(() => false);
           },

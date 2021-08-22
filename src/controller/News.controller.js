@@ -26,7 +26,7 @@ module.exports = {
       const news = await News.findByIdAndDelete(newsId);
       res.status(200).json(news);
     } catch (err) {
-      res.status(400).json({ message: "Error eliminando los datos" });
+      res.status(400).json({ message: err.message });
     }
   },
 }
