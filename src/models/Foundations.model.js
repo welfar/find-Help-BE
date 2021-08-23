@@ -22,7 +22,6 @@ const foundationSchema = new Schema(
                   return true;
                 }
                 return false;
-                // return !foundation;
               })
               .catch(() => false);
           },

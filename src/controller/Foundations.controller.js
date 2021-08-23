@@ -20,9 +20,20 @@ module.exports = {
 		}
 	},
 
+  async updatePic(req, res) {
+		try {
+			const { body } = req;
+      const { foundationToAssign } = req.body;
+			const foundation = await Foundation.findByIdAndUpdate(foundationToAssign, body, {new: true});
+			res.status(200).json(foundation);
+		} catch (error) {
+			res.status(400).json({ message: error.message });
+		}
+	},
+
 	async update(req, res) {
 		try {
-			const { foundationId, name, phone, address } = req.body;
+			const { foundationId, name, phone, address, logo } = req.body;
 			const foundation = await Foundation.findById(foundationId);
 			if (req.body.name !== "") {
 				foundation.name = req.body.name;
